@@ -1,5 +1,24 @@
 
 
+
+cd ~/usl_drone_sim
+
+~/launch_sim.sh
+
+
+cd ~/ardupilot/Tools/autotest
+
+./sim_vehicle.py -v ArduCopter -w --model webots-python --add-param-file=/home/synerglogic/usl_drone_sim/params/mavic.parm --console --map
+
+
+
+cd ~/Downloads 
+./QGroundControl-x86_64.AppImage
+
+
+
+
+
 synerglogic@synerglogic:~$ tree ~/usl_drone_sim
 /home/synerglogic/usl_drone_sim
 ├── build
@@ -12,7 +31,7 @@ synerglogic@synerglogic:~$ tree ~/usl_drone_sim
 │       ├── prefix_override
 │       │   ├── __pycache__
 │       │   │   └── sitecustomize.cpython-310.pyc
-│       │   └── sitecustomize.py
+
 │       ├── resource
 │       │   └── usl_control -> /home/synerglogic/usl_drone_sim/src/usl_control/resource/usl_control
 │       ├── setup.cfg -> /home/synerglogic/usl_drone_sim/src/usl_control/setup.cfg
