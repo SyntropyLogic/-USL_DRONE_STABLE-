@@ -26,7 +26,13 @@ ros2 run mavros mavros_node --ros-args \
   -p gcs_url:=udp://@127.0.0.1:14560
 
 # Terminal 3: Launch your USL system
+# Source ROS2 base (gives you ros2 command and MAVROS)
 source /opt/ros/humble/setup.bash
+
+# Source YOUR workspace (gives you your custom packages)
+source ~/usl_drone_sim/install/setup.bash
+
+# Now launch
 ros2 launch usl_adaptive_control usl_system.launch.py
 
 
