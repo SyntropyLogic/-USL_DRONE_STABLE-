@@ -1,0 +1,34 @@
+
+
+cd ~/Downloads 
+./QGroundControl-x86_64.AppImage
+
+ --ROS
+# Terminal 1: Launch Webots + ArduPilot (as before)
+
+# Terminal 2: Launch MAVROS
+
+ros2 run mavros mavros_node --ros-args \
+  -p fcu_url:=udp://:14550@127.0.0.1:14555 \
+  -p gcs_url:=udp://@127.0.0.1:14560
+
+# Terminal 3: Launch your USL system
+source /opt/ros/humble/setup.bash
+ros2 launch usl_adaptive_control usl_system.launch.py
+
+
+_____________
+
+
+cd ~/usl_drone_sim
+colcon build --packages-select usl_adaptive_control
+source install/setup.bash
+
+
+
+
+
+
+
+
+
