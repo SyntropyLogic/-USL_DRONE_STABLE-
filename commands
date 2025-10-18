@@ -1,5 +1,18 @@
 
 
+
+cd ~/usl_drone_sim/src/usl_adaptive_control/usl_adaptive_control
+
+-
+~/launch_sim.sh
+
+--
+cd ~/ardupilot/Tools/autotest
+
+./sim_vehicle.py -v ArduCopter -w --model webots-python --add-param-file=/home/synerglogic/usl_drone_sim/params/mavic.parm --console --map
+
+
+
 cd ~/Downloads 
 ./QGroundControl-x86_64.AppImage
 
