@@ -1,0 +1,722 @@
+yes got mavros connected and evertthing is running together god damn so many systems, still need to test mission but did i do it, it arms and dissarms with ros commands.
+
+
+
+
+[INFO] [1760784423.904645315] [mavros.rc]: RC_CHANNELS message detected!
+[INFO] [1760784423.904919330] [mavros.imu]: IMU: Raw IMU message used.
+[WARN] [1760784423.904953274] [mavros.imu]: IMU: linear acceleration on RAW_IMU known on APM only.
+[WARN] [1760784423.904967641] [mavros.imu]: IMU: ~imu/data_raw stores unscaled raw acceleration report.
+[INFO] [1760784424.736713579] [mavros_router]: link[1002] detected remote address 1.191
+[WARN] [1760784424.751114687] [mavros.cmd]: CMD: Unexpected command 520, result 0
+[INFO] [1760784424.751490003] [mavros.geofence]: GF: Using MISSION_ITEM_INT
+[INFO] [1760784424.751519699] [mavros.rallypoint]: RP: Using MISSION_ITEM_INT
+[INFO] [1760784424.751532753] [mavros.mission]: WP: Using MISSION_ITEM_INT
+[INFO] [1760784424.751544185] [mavros.sys]: VER: 1.1: Capabilities         0x000000000000fbef
+[INFO] [1760784424.751557520] [mavros.sys]: VER: 1.1: Flight software:     04070000 (3163616431306164)
+[INFO] [1760784424.751574382] [mavros.sys]: VER: 1.1: Middleware software: 00000000 (0000000000000000)
+[INFO] [1760784424.751621149] [mavros.sys]: VER: 1.1: OS software:         00000000 (0000000000000000)
+[INFO] [1760784424.751648040] [mavros.sys]: VER: 1.1: Board hardware:      00000000
+[INFO] [1760784424.751655374] [mavros.sys]: VER: 1.1: VID/PID:             0000:0000
+[INFO] [1760784424.751661846] [mavros.sys]: VER: 1.1: UID:                 0000000000000000
+[INFO] [1760784425.031465858] [mavros]: CON: Got HEARTBEAT, connected. FCU: ArduPilot
+[INFO] [1760784425.031606613] [mavros.mission]: WP: detected enable_partial_push: 1
+[INFO] [1760784425.165398141] [mavros.rc]: RC_CHANNELS message detected!
+[INFO] [1760784425.165614258] [mavros.imu]: IMU: Raw IMU message used.
+[INFO] [1760784426.046313276] [mavros.sys]: VER: 1.1: Capabilities         0x000000000000fbef
+[INFO] [1760784426.046361887] [mavros.sys]: VER: 1.1: Flight software:     04070000 (da01dac1)
+[INFO] [1760784426.046373830] [mavros.sys]: VER: 1.1: Middleware software: 00000000 (        )
+[INFO] [1760784426.046382827] [mavros.sys]: VER: 1.1: OS software:         00000000 (        )
+[INFO] [1760784426.046390421] [mavros.sys]: VER: 1.1: Board hardware:      00000000
+[INFO] [1760784426.046398436] [mavros.sys]: VER: 1.1: VID/PID:             0000:0000
+[INFO] [1760784426.046406180] [mavros.sys]: VER: 1.1: UID:                 0000000000000000
+[INFO] [1760784435.043832719] [mavros.sys]: FCU: ArduCopter V4.7.0-dev (da01dac1)
+[INFO] [1760784435.044276343] [mavros.sys]: FCU: 848d41469b404e93aa96e0cd8fbc8a7f
+[INFO] [1760784435.044565146] [mavros.sys]: FCU: Frame: QUAD/X
+[INFO] [1760784436.076982989] [mavros.param]: PR: parameters list received
+[INFO] [1760784440.045013302] [mavros.mission]: WP: item #0  F:0 C: 16 p: 0 0 0 0 x: -35.36326 y: 149.1652 z: 584.05
+[INFO] [1760784440.045126555] [mavros.mission]: WP: mission received
+[INFO] [1760784445.035871978] [mavros.rallypoint]: RP: mission received
+[INFO] [1760784450.034122506] [mavros.geofence]: GF: mission received
+[INFO] [1760784937.466035797] [mavros.sys]: FCU: Arming motors
+[INFO] [1760784949.882394400] [mavros.sys]: FCU: Disarming motors
+[INFO] [1760785099.506777863] [mavros.sys]: FCU: Arming motors
+[INFO] [1760785112.274660871] [mavros.sys]: FCU: Disarming motors
+[INFO] [1760785141.267362860] [mavros.sys]: FCU: Arming motors
+[INFO] [1760785154.011023525] [mavros.sys]: FCU: Disarming motors
+[INFO] [1760785205.546973146] [mavros.sys]: FCU: Arming motors
+[INFO] [1760785218.112051867] [mavros.sys]: FCU: Disarming motors
+
+
+
+
+
+synerglogic@synerglogic:~$ source /opt/ros/humble/setup.bash
+synerglogic@synerglogic:~$ ros2 topic list | grep mavros
+/mavros/actuator_control
+/mavros/adsb/send
+/mavros/adsb/vehicle
+/mavros/altitude
+/mavros/battery
+/mavros/cam_imu_sync/cam_imu_stamp
+/mavros/camera/image_captured
+/mavros/cellular_status/status
+/mavros/companion_process/status
+/mavros/debug_value/debug
+/mavros/debug_value/debug_float_array
+/mavros/debug_value/debug_vector
+/mavros/debug_value/named_value_float
+/mavros/debug_value/named_value_int
+/mavros/debug_value/send
+/mavros/esc_status/info
+/mavros/esc_status/status
+/mavros/esc_telemetry/telemetry
+/mavros/estimator_status
+/mavros/extended_state
+/mavros/fake_gps/mocap/tf
+/mavros/geofence/fences
+/mavros/gimbal_control/device/attitude_status
+/mavros/gimbal_control/device/info
+/mavros/gimbal_control/device/set_attitude
+/mavros/gimbal_control/manager/info
+/mavros/gimbal_control/manager/set_attitude
+/mavros/gimbal_control/manager/set_manual_control
+/mavros/gimbal_control/manager/set_pitchyaw
+/mavros/gimbal_control/manager/status
+/mavros/global_position/compass_hdg
+/mavros/global_position/global
+/mavros/global_position/gp_lp_offset
+/mavros/global_position/gp_origin
+/mavros/global_position/local
+/mavros/global_position/raw/fix
+/mavros/global_position/raw/gps_vel
+/mavros/global_position/raw/satellites
+/mavros/global_position/rel_alt
+/mavros/global_position/set_gp_origin
+/mavros/gps_input/gps_input
+/mavros/gps_rtk/rtk_baseline
+/mavros/gps_rtk/send_rtcm
+/mavros/gpsstatus/gps1/raw
+/mavros/gpsstatus/gps1/rtk
+/mavros/gpsstatus/gps2/raw
+/mavros/gpsstatus/gps2/rtk
+/mavros/hil/actuator_controls
+/mavros/hil/controls
+/mavros/hil/gps
+/mavros/hil/imu_ned
+/mavros/hil/optical_flow
+/mavros/hil/rc_inputs
+/mavros/hil/state
+/mavros/home_position/home
+/mavros/home_position/set
+/mavros/imu/data
+/mavros/imu/data_raw
+/mavros/imu/diff_pressure
+/mavros/imu/mag
+/mavros/imu/static_pressure
+/mavros/imu/temperature_baro
+/mavros/imu/temperature_imu
+/mavros/landing_target/lt_marker
+/mavros/landing_target/pose
+/mavros/landing_target/pose_in
+/mavros/local_position/accel
+/mavros/local_position/odom
+/mavros/local_position/pose
+/mavros/local_position/pose_cov
+/mavros/local_position/velocity_body
+/mavros/local_position/velocity_body_cov
+/mavros/local_position/velocity_local
+/mavros/log_transfer/raw/log_data
+/mavros/log_transfer/raw/log_entry
+/mavros/mag_calibration/report
+/mavros/mag_calibration/status
+/mavros/manual_control/control
+/mavros/manual_control/send
+/mavros/mocap/pose
+/mavros/mocap/tf
+/mavros/mount_control/command
+/mavros/mount_control/orientation
+/mavros/mount_control/status
+/mavros/nav_controller_output/output
+/mavros/obstacle/send
+/mavros/odometry/in
+/mavros/odometry/out
+/mavros/onboard_computer/status
+/mavros/open_drone_id/basic_id
+/mavros/open_drone_id/operator_id
+/mavros/open_drone_id/self_id
+/mavros/open_drone_id/system
+/mavros/open_drone_id/system_update
+/mavros/optical_flow/ground_distance
+/mavros/optical_flow/raw/optical_flow
+/mavros/optical_flow/raw/send
+/mavros/param/event
+/mavros/play_tune
+/mavros/px4flow/ground_distance
+/mavros/px4flow/raw/optical_flow_rad
+/mavros/px4flow/raw/send
+/mavros/px4flow/temperature
+/mavros/radio_status
+/mavros/rallypoint/rallypoints
+/mavros/rangefinder/rangefinder
+/mavros/rc/in
+/mavros/rc/out
+/mavros/rc/override
+/mavros/setpoint_accel/accel
+/mavros/setpoint_attitude/cmd_vel
+/mavros/setpoint_attitude/thrust
+/mavros/setpoint_position/global
+/mavros/setpoint_position/global_to_local
+/mavros/setpoint_position/local
+/mavros/setpoint_raw/attitude
+/mavros/setpoint_raw/global
+/mavros/setpoint_raw/local
+/mavros/setpoint_raw/target_attitude
+/mavros/setpoint_raw/target_global
+/mavros/setpoint_raw/target_local
+/mavros/setpoint_trajectory/desired
+/mavros/setpoint_trajectory/local
+/mavros/setpoint_velocity/cmd_vel
+/mavros/setpoint_velocity/cmd_vel_unstamped
+/mavros/state
+/mavros/status_event
+/mavros/statustext/recv
+/mavros/statustext/send
+/mavros/sys_status
+/mavros/target_actuator_control
+/mavros/terrain/report
+/mavros/time_reference
+/mavros/timesync_status
+/mavros/trajectory/desired
+/mavros/trajectory/generated
+/mavros/trajectory/path
+/mavros/tunnel/in
+/mavros/tunnel/out
+/mavros/vfr_hud
+/mavros/vibration/raw/vibration
+/mavros/vision_pose/pose
+/mavros/vision_pose/pose_cov
+/mavros/vision_speed/speed_twist
+/mavros/vision_speed/speed_twist_cov
+/mavros/vision_speed/speed_vector
+synerglogic@synerglogic:~$ ros2 topic echo /mavros/local_position/pose --once
+header:
+  stamp:
+    sec: 1760784896
+    nanosec: 453313717
+  frame_id: map
+pose:
+  position:
+    x: 0.0
+    y: 0.0
+    z: 0.05000000074505806
+  orientation:
+    x: 8.659560562354934e-17
+    y: 8.659560562354932e-17
+    z: -0.7071067811865475
+    w: -0.7071067811865476
+---
+synerglogic@synerglogic:~$ ros2 topic echo /mavros/state --once
+header:
+  stamp:
+    sec: 1760784896
+    nanosec: 531810595
+  frame_id: ''
+connected: true
+armed: false
+guided: false
+manual_input: true
+mode: STABILIZE
+system_status: 3
+---
+synerglogic@synerglogic:~$ ros2 topic hz /mavros/state
+average rate: 0.783
+	min: 1.239s max: 1.316s std dev: 0.03836s window: 2
+average rate: 0.782
+	min: 1.239s max: 1.316s std dev: 0.03141s window: 3
+average rate: 0.793
+	min: 1.209s max: 1.316s std dev: 0.04091s window: 4
+average rate: 0.801
+	min: 1.197s max: 1.316s std dev: 0.04488s window: 5
+average rate: 0.800
+	min: 1.197s max: 1.316s std dev: 0.04104s window: 6
+average rate: 0.794
+	min: 1.197s max: 1.324s std dev: 0.04600s window: 7
+^Csynerglogic@synerglogic:~ros2 service list | grep mavrosos
+/mavros/actuator_control/describe_parameters
+/mavros/actuator_control/get_parameter_types
+/mavros/actuator_control/get_parameters
+/mavros/actuator_control/list_parameters
+/mavros/actuator_control/set_parameters
+/mavros/actuator_control/set_parameters_atomically
+/mavros/adsb/describe_parameters
+/mavros/adsb/get_parameter_types
+/mavros/adsb/get_parameters
+/mavros/adsb/list_parameters
+/mavros/adsb/set_parameters
+/mavros/adsb/set_parameters_atomically
+/mavros/altitude/describe_parameters
+/mavros/altitude/get_parameter_types
+/mavros/altitude/get_parameters
+/mavros/altitude/list_parameters
+/mavros/altitude/set_parameters
+/mavros/altitude/set_parameters_atomically
+/mavros/cam_imu_sync/describe_parameters
+/mavros/cam_imu_sync/get_parameter_types
+/mavros/cam_imu_sync/get_parameters
+/mavros/cam_imu_sync/list_parameters
+/mavros/cam_imu_sync/set_parameters
+/mavros/cam_imu_sync/set_parameters_atomically
+/mavros/camera/describe_parameters
+/mavros/camera/get_parameter_types
+/mavros/camera/get_parameters
+/mavros/camera/list_parameters
+/mavros/camera/set_parameters
+/mavros/camera/set_parameters_atomically
+/mavros/cellular_status/describe_parameters
+/mavros/cellular_status/get_parameter_types
+/mavros/cellular_status/get_parameters
+/mavros/cellular_status/list_parameters
+/mavros/cellular_status/set_parameters
+/mavros/cellular_status/set_parameters_atomically
+/mavros/cmd/arming
+/mavros/cmd/command
+/mavros/cmd/command_int
+/mavros/cmd/describe_parameters
+/mavros/cmd/get_parameter_types
+/mavros/cmd/get_parameters
+/mavros/cmd/land
+/mavros/cmd/land_local
+/mavros/cmd/list_parameters
+/mavros/cmd/set_home
+/mavros/cmd/set_parameters
+/mavros/cmd/set_parameters_atomically
+/mavros/cmd/takeoff
+/mavros/cmd/takeoff_local
+/mavros/cmd/trigger_control
+/mavros/cmd/trigger_interval
+/mavros/cmd/vtol_transition
+/mavros/companion_process/describe_parameters
+/mavros/companion_process/get_parameter_types
+/mavros/companion_process/get_parameters
+/mavros/companion_process/list_parameters
+/mavros/companion_process/set_parameters
+/mavros/companion_process/set_parameters_atomically
+/mavros/debug_value/describe_parameters
+/mavros/debug_value/get_parameter_types
+/mavros/debug_value/get_parameters
+/mavros/debug_value/list_parameters
+/mavros/debug_value/set_parameters
+/mavros/debug_value/set_parameters_atomically
+/mavros/describe_parameters
+/mavros/distance_sensor/describe_parameters
+/mavros/distance_sensor/get_parameter_types
+/mavros/distance_sensor/get_parameters
+/mavros/distance_sensor/list_parameters
+/mavros/distance_sensor/set_parameters
+/mavros/distance_sensor/set_parameters_atomically
+/mavros/esc_status/describe_parameters
+/mavros/esc_status/get_parameter_types
+/mavros/esc_status/get_parameters
+/mavros/esc_status/list_parameters
+/mavros/esc_status/set_parameters
+/mavros/esc_status/set_parameters_atomically
+/mavros/esc_telemetry/describe_parameters
+/mavros/esc_telemetry/get_parameter_types
+/mavros/esc_telemetry/get_parameters
+/mavros/esc_telemetry/list_parameters
+/mavros/esc_telemetry/set_parameters
+/mavros/esc_telemetry/set_parameters_atomically
+/mavros/fake_gps/describe_parameters
+/mavros/fake_gps/get_parameter_types
+/mavros/fake_gps/get_parameters
+/mavros/fake_gps/list_parameters
+/mavros/fake_gps/set_parameters
+/mavros/fake_gps/set_parameters_atomically
+/mavros/ftp/checksum
+/mavros/ftp/close
+/mavros/ftp/describe_parameters
+/mavros/ftp/get_parameter_types
+/mavros/ftp/get_parameters
+/mavros/ftp/list
+/mavros/ftp/list_parameters
+/mavros/ftp/mkdir
+/mavros/ftp/open
+/mavros/ftp/read
+/mavros/ftp/remove
+/mavros/ftp/rename
+/mavros/ftp/reset
+/mavros/ftp/rmdir
+/mavros/ftp/set_parameters
+/mavros/ftp/set_parameters_atomically
+/mavros/ftp/truncate
+/mavros/ftp/write
+/mavros/geofence/clear
+/mavros/geofence/describe_parameters
+/mavros/geofence/get_parameter_types
+/mavros/geofence/get_parameters
+/mavros/geofence/list_parameters
+/mavros/geofence/pull
+/mavros/geofence/push
+/mavros/geofence/set_parameters
+/mavros/geofence/set_parameters_atomically
+/mavros/get_parameter_types
+/mavros/get_parameters
+/mavros/gimbal_control/describe_parameters
+/mavros/gimbal_control/device/get_info
+/mavros/gimbal_control/get_parameter_types
+/mavros/gimbal_control/get_parameters
+/mavros/gimbal_control/list_parameters
+/mavros/gimbal_control/manager/camera_track
+/mavros/gimbal_control/manager/configure
+/mavros/gimbal_control/manager/get_info
+/mavros/gimbal_control/manager/pitchyaw
+/mavros/gimbal_control/manager/set_roi
+/mavros/gimbal_control/set_parameters
+/mavros/gimbal_control/set_parameters_atomically
+/mavros/global_position/describe_parameters
+/mavros/global_position/get_parameter_types
+/mavros/global_position/get_parameters
+/mavros/global_position/list_parameters
+/mavros/global_position/set_parameters
+/mavros/global_position/set_parameters_atomically
+/mavros/gps_input/describe_parameters
+/mavros/gps_input/get_parameter_types
+/mavros/gps_input/get_parameters
+/mavros/gps_input/list_parameters
+/mavros/gps_input/set_parameters
+/mavros/gps_input/set_parameters_atomically
+/mavros/gps_rtk/describe_parameters
+/mavros/gps_rtk/get_parameter_types
+/mavros/gps_rtk/get_parameters
+/mavros/gps_rtk/list_parameters
+/mavros/gps_rtk/set_parameters
+/mavros/gps_rtk/set_parameters_atomically
+/mavros/gpsstatus/describe_parameters
+/mavros/gpsstatus/get_parameter_types
+/mavros/gpsstatus/get_parameters
+/mavros/gpsstatus/list_parameters
+/mavros/gpsstatus/set_parameters
+/mavros/gpsstatus/set_parameters_atomically
+/mavros/guided_target/describe_parameters
+/mavros/guided_target/get_parameter_types
+/mavros/guided_target/get_parameters
+/mavros/guided_target/list_parameters
+/mavros/guided_target/set_parameters
+/mavros/guided_target/set_parameters_atomically
+/mavros/hil/describe_parameters
+/mavros/hil/get_parameter_types
+/mavros/hil/get_parameters
+/mavros/hil/list_parameters
+/mavros/hil/set_parameters
+/mavros/hil/set_parameters_atomically
+/mavros/home_position/describe_parameters
+/mavros/home_position/get_parameter_types
+/mavros/home_position/get_parameters
+/mavros/home_position/list_parameters
+/mavros/home_position/req_update
+/mavros/home_position/set_parameters
+/mavros/home_position/set_parameters_atomically
+/mavros/imu/describe_parameters
+/mavros/imu/get_parameter_types
+/mavros/imu/get_parameters
+/mavros/imu/list_parameters
+/mavros/imu/set_parameters
+/mavros/imu/set_parameters_atomically
+/mavros/landing_target/describe_parameters
+/mavros/landing_target/get_parameter_types
+/mavros/landing_target/get_parameters
+/mavros/landing_target/list_parameters
+/mavros/landing_target/set_parameters
+/mavros/landing_target/set_parameters_atomically
+/mavros/list_parameters
+/mavros/local_position/describe_parameters
+/mavros/local_position/get_parameter_types
+/mavros/local_position/get_parameters
+/mavros/local_position/list_parameters
+/mavros/local_position/set_parameters
+/mavros/local_position/set_parameters_atomically
+/mavros/log_transfer/describe_parameters
+/mavros/log_transfer/get_parameter_types
+/mavros/log_transfer/get_parameters
+/mavros/log_transfer/list_parameters
+/mavros/log_transfer/raw/log_request_data
+/mavros/log_transfer/raw/log_request_end
+/mavros/log_transfer/raw/log_request_erase
+/mavros/log_transfer/raw/log_request_list
+/mavros/log_transfer/set_parameters
+/mavros/log_transfer/set_parameters_atomically
+/mavros/mag_calibration/describe_parameters
+/mavros/mag_calibration/get_parameter_types
+/mavros/mag_calibration/get_parameters
+/mavros/mag_calibration/list_parameters
+/mavros/mag_calibration/set_parameters
+/mavros/mag_calibration/set_parameters_atomically
+/mavros/manual_control/describe_parameters
+/mavros/manual_control/get_parameter_types
+/mavros/manual_control/get_parameters
+/mavros/manual_control/list_parameters
+/mavros/manual_control/set_parameters
+/mavros/manual_control/set_parameters_atomically
+/mavros/mission/clear
+/mavros/mission/describe_parameters
+/mavros/mission/get_parameter_types
+/mavros/mission/get_parameters
+/mavros/mission/list_parameters
+/mavros/mission/pull
+/mavros/mission/push
+/mavros/mission/set_current
+/mavros/mission/set_parameters
+/mavros/mission/set_parameters_atomically
+/mavros/mocap/describe_parameters
+/mavros/mocap/get_parameter_types
+/mavros/mocap/get_parameters
+/mavros/mocap/list_parameters
+/mavros/mocap/set_parameters
+/mavros/mocap/set_parameters_atomically
+/mavros/mount_control/configure
+/mavros/mount_control/describe_parameters
+/mavros/mount_control/get_parameter_types
+/mavros/mount_control/get_parameters
+/mavros/mount_control/list_parameters
+/mavros/mount_control/set_parameters
+/mavros/mount_control/set_parameters_atomically
+/mavros/nav_controller_output/describe_parameters
+/mavros/nav_controller_output/get_parameter_types
+/mavros/nav_controller_output/get_parameters
+/mavros/nav_controller_output/list_parameters
+/mavros/nav_controller_output/set_parameters
+/mavros/nav_controller_output/set_parameters_atomically
+/mavros/obstacle/describe_parameters
+/mavros/obstacle/get_parameter_types
+/mavros/obstacle/get_parameters
+/mavros/obstacle/list_parameters
+/mavros/obstacle/set_parameters
+/mavros/obstacle/set_parameters_atomically
+/mavros/odometry/describe_parameters
+/mavros/odometry/get_parameter_types
+/mavros/odometry/get_parameters
+/mavros/odometry/list_parameters
+/mavros/odometry/set_parameters
+/mavros/odometry/set_parameters_atomically
+/mavros/onboard_computer/describe_parameters
+/mavros/onboard_computer/get_parameter_types
+/mavros/onboard_computer/get_parameters
+/mavros/onboard_computer/list_parameters
+/mavros/onboard_computer/set_parameters
+/mavros/onboard_computer/set_parameters_atomically
+/mavros/open_drone_id/describe_parameters
+/mavros/open_drone_id/get_parameter_types
+/mavros/open_drone_id/get_parameters
+/mavros/open_drone_id/list_parameters
+/mavros/open_drone_id/set_parameters
+/mavros/open_drone_id/set_parameters_atomically
+/mavros/optical_flow/describe_parameters
+/mavros/optical_flow/get_parameter_types
+/mavros/optical_flow/get_parameters
+/mavros/optical_flow/list_parameters
+/mavros/optical_flow/set_parameters
+/mavros/optical_flow/set_parameters_atomically
+/mavros/param/describe_parameters
+/mavros/param/get_parameter_types
+/mavros/param/get_parameters
+/mavros/param/list_parameters
+/mavros/param/pull
+/mavros/param/set
+/mavros/param/set_parameters
+/mavros/param/set_parameters_atomically
+/mavros/play_tune/describe_parameters
+/mavros/play_tune/get_parameter_types
+/mavros/play_tune/get_parameters
+/mavros/play_tune/list_parameters
+/mavros/play_tune/set_parameters
+/mavros/play_tune/set_parameters_atomically
+/mavros/px4flow/describe_parameters
+/mavros/px4flow/get_parameter_types
+/mavros/px4flow/get_parameters
+/mavros/px4flow/list_parameters
+/mavros/px4flow/set_parameters
+/mavros/px4flow/set_parameters_atomically
+/mavros/rallypoint/clear
+/mavros/rallypoint/describe_parameters
+/mavros/rallypoint/get_parameter_types
+/mavros/rallypoint/get_parameters
+/mavros/rallypoint/list_parameters
+/mavros/rallypoint/pull
+/mavros/rallypoint/push
+/mavros/rallypoint/set_parameters
+/mavros/rallypoint/set_parameters_atomically
+/mavros/rangefinder/describe_parameters
+/mavros/rangefinder/get_parameter_types
+/mavros/rangefinder/get_parameters
+/mavros/rangefinder/list_parameters
+/mavros/rangefinder/set_parameters
+/mavros/rangefinder/set_parameters_atomically
+/mavros/rc/describe_parameters
+/mavros/rc/get_parameter_types
+/mavros/rc/get_parameters
+/mavros/rc/list_parameters
+/mavros/rc/set_parameters
+/mavros/rc/set_parameters_atomically
+/mavros/set_message_interval
+/mavros/set_mode
+/mavros/set_parameters
+/mavros/set_parameters_atomically
+/mavros/set_stream_rate
+/mavros/setpoint_accel/describe_parameters
+/mavros/setpoint_accel/get_parameter_types
+/mavros/setpoint_accel/get_parameters
+/mavros/setpoint_accel/list_parameters
+/mavros/setpoint_accel/set_parameters
+/mavros/setpoint_accel/set_parameters_atomically
+/mavros/setpoint_attitude/describe_parameters
+/mavros/setpoint_attitude/get_parameter_types
+/mavros/setpoint_attitude/get_parameters
+/mavros/setpoint_attitude/list_parameters
+/mavros/setpoint_attitude/set_parameters
+/mavros/setpoint_attitude/set_parameters_atomically
+/mavros/setpoint_position/describe_parameters
+/mavros/setpoint_position/get_parameter_types
+/mavros/setpoint_position/get_parameters
+/mavros/setpoint_position/list_parameters
+/mavros/setpoint_position/set_parameters
+/mavros/setpoint_position/set_parameters_atomically
+/mavros/setpoint_raw/describe_parameters
+/mavros/setpoint_raw/get_parameter_types
+/mavros/setpoint_raw/get_parameters
+/mavros/setpoint_raw/list_parameters
+/mavros/setpoint_raw/set_parameters
+/mavros/setpoint_raw/set_parameters_atomically
+/mavros/setpoint_trajectory/describe_parameters
+/mavros/setpoint_trajectory/get_parameter_types
+/mavros/setpoint_trajectory/get_parameters
+/mavros/setpoint_trajectory/list_parameters
+/mavros/setpoint_trajectory/reset
+/mavros/setpoint_trajectory/set_parameters
+/mavros/setpoint_trajectory/set_parameters_atomically
+/mavros/setpoint_velocity/describe_parameters
+/mavros/setpoint_velocity/get_parameter_types
+/mavros/setpoint_velocity/get_parameters
+/mavros/setpoint_velocity/list_parameters
+/mavros/setpoint_velocity/set_parameters
+/mavros/setpoint_velocity/set_parameters_atomically
+/mavros/sys/describe_parameters
+/mavros/sys/get_parameter_types
+/mavros/sys/get_parameters
+/mavros/sys/list_parameters
+/mavros/sys/set_parameters
+/mavros/sys/set_parameters_atomically
+/mavros/tdr_radio/describe_parameters
+/mavros/tdr_radio/get_parameter_types
+/mavros/tdr_radio/get_parameters
+/mavros/tdr_radio/list_parameters
+/mavros/tdr_radio/set_parameters
+/mavros/tdr_radio/set_parameters_atomically
+/mavros/terrain/describe_parameters
+/mavros/terrain/get_parameter_types
+/mavros/terrain/get_parameters
+/mavros/terrain/list_parameters
+/mavros/terrain/set_parameters
+/mavros/terrain/set_parameters_atomically
+/mavros/time/describe_parameters
+/mavros/time/get_parameter_types
+/mavros/time/get_parameters
+/mavros/time/list_parameters
+/mavros/time/set_parameters
+/mavros/time/set_parameters_atomically
+/mavros/trajectory/describe_parameters
+/mavros/trajectory/get_parameter_types
+/mavros/trajectory/get_parameters
+/mavros/trajectory/list_parameters
+/mavros/trajectory/set_parameters
+/mavros/trajectory/set_parameters_atomically
+/mavros/tunnel/describe_parameters
+/mavros/tunnel/get_parameter_types
+/mavros/tunnel/get_parameters
+/mavros/tunnel/list_parameters
+/mavros/tunnel/set_parameters
+/mavros/tunnel/set_parameters_atomically
+/mavros/vehicle_info_get
+/mavros/vfr_hud/describe_parameters
+/mavros/vfr_hud/get_parameter_types
+/mavros/vfr_hud/get_parameters
+/mavros/vfr_hud/list_parameters
+/mavros/vfr_hud/set_parameters
+/mavros/vfr_hud/set_parameters_atomically
+/mavros/vibration/describe_parameters
+/mavros/vibration/get_parameter_types
+/mavros/vibration/get_parameters
+/mavros/vibration/list_parameters
+/mavros/vibration/set_parameters
+/mavros/vibration/set_parameters_atomically
+/mavros/vision_pose/describe_parameters
+/mavros/vision_pose/get_parameter_types
+/mavros/vision_pose/get_parameters
+/mavros/vision_pose/list_parameters
+/mavros/vision_pose/set_parameters
+/mavros/vision_pose/set_parameters_atomically
+/mavros/vision_speed/describe_parameters
+/mavros/vision_speed/get_parameter_types
+/mavros/vision_speed/get_parameters
+/mavros/vision_speed/list_parameters
+/mavros/vision_speed/set_parameters
+/mavros/vision_speed/set_parameters_atomically
+/mavros/wheel_odometry/describe_parameters
+/mavros/wheel_odometry/get_parameter_types
+/mavros/wheel_odometry/get_parameters
+/mavros/wheel_odometry/list_parameters
+/mavros/wheel_odometry/set_parameters
+/mavros/wheel_odometry/set_parameters_atomically
+/mavros/wind/describe_parameters
+/mavros/wind/get_parameter_types
+/mavros/wind/get_parameters
+/mavros/wind/list_parameters
+/mavros/wind/set_parameters
+/mavros/wind/set_parameters_atomically
+/mavros_node/describe_parameters
+/mavros_node/get_parameter_types
+/mavros_node/get_parameters
+/mavros_node/list_parameters
+/mavros_node/set_parameters
+/mavros_node/set_parameters_atomically
+/mavros_router/add_endpoint
+/mavros_router/del_endpoint
+/mavros_router/describe_parameters
+/mavros_router/get_parameter_types
+/mavros_router/get_parameters
+/mavros_router/list_parameters
+/mavros_router/set_parameters
+/mavros_router/set_parameters_atomically
+synerglogic@synerglogic:~$ ros2 service call /mavros/cmd/arming mavros_msgs/srv/CommandBool "{value: true}"
+requester: making request: mavros_msgs.srv.CommandBool_Request(value=True)
+
+response:
+mavros_msgs.srv.CommandBool_Response(success=True, result=0)
+
+got mavros connected 
+
+synerglogic@synerglogic:~$ ros2 service call /mavros/set_mode mavros_msgs/srv/SetMode "{custom_mode: 'GUIDED'}"
+waiting for service to become available...
+requester: making request: mavros_msgs.srv.SetMode_Request(base_mode=0, custom_mode='GUIDED')
+
+response:
+mavros_msgs.srv.SetMode_Response(mode_sent=True)
+
+synerglogic@synerglogic:~$ ros2 topic echo /mavros/state --once
+header:
+  stamp:
+    sec: 1760784950
+    nanosec: 558162089
+  frame_id: ''
+connected: true
+armed: false
+guided: true
+manual_input: true
+mode: GUIDED
+system_status: 3
+---
+
+
+
+
+
