@@ -1,0 +1,163 @@
+
+
+synerglogic@synerglogic:~$ tree ~/usl_drone_sim
+/home/synerglogic/usl_drone_sim
+├── build
+│   ├── COLCON_IGNORE
+│   └── usl_control
+│       ├── colcon_build.rc
+│       ├── colcon_command_prefix_setup_py.sh
+│       ├── colcon_command_prefix_setup_py.sh.env
+│       ├── package.xml -> /home/synerglogic/usl_drone_sim/src/usl_control/package.xml
+│       ├── prefix_override
+│       │   ├── __pycache__
+│       │   │   └── sitecustomize.cpython-310.pyc
+│       │   └── sitecustomize.py
+│       ├── resource
+│       │   └── usl_control -> /home/synerglogic/usl_drone_sim/src/usl_control/resource/usl_control
+│       ├── setup.cfg -> /home/synerglogic/usl_drone_sim/src/usl_control/setup.cfg
+│       ├── setup.py -> /home/synerglogic/usl_drone_sim/src/usl_control/setup.py
+│       ├── share
+│       │   └── usl_control
+│       │       └── hook
+│       │           ├── pythonpath_develop.dsv
+│       │           ├── pythonpath_develop.ps1
+│       │           └── pythonpath_develop.sh
+│       ├── usl_control -> /home/synerglogic/usl_drone_sim/src/usl_control/usl_control
+│       └── usl_control.egg-info
+│           ├── dependency_links.txt
+│           ├── entry_points.txt
+│           ├── PKG-INFO
+│           ├── requires.txt
+│           ├── SOURCES.txt
+│           ├── top_level.txt
+│           └── zip-safe
+├── controllers
+│   ├── ardupilot_bridge
+│   │   └── ardupilot_vehicle_controller.py
+│   ├── ardupilot_vehicle_controller
+│   │   ├── ardupilot_vehicle_controller.py
+│   │   ├── __pycache__
+│   │   │   └── webots_vehicle.cpython-310.pyc
+│   │   └── webots_vehicle.py
+│   ├── px4_controller
+│   │   └── px4_controller.py
+│   ├── px4_mavlink_bridge
+│   │   └── px4_mavlink_bridge.py
+│   ├── quad_hover
+│   │   └── quad_hover.py
+│   └── simple_hover
+│       └── simple_hover.py
+├── install
+│   ├── COLCON_IGNORE
+│   ├── local_setup.bash
+│   ├── local_setup.ps1
+│   ├── local_setup.sh
+│   ├── _local_setup_util_ps1.py
+│   ├── _local_setup_util_sh.py
+│   ├── local_setup.zsh
+│   ├── setup.bash
+│   ├── setup.ps1
+│   ├── setup.sh
+│   ├── setup.zsh
+│   └── usl_control
+│       ├── lib
+│       │   ├── python3.10
+│       │   │   └── site-packages
+│       │   │       └── usl-control.egg-link
+│       │   └── usl_control
+│       │       ├── mavic_bridge
+│       │       └── square_mission
+│       └── share
+│           ├── ament_index
+│           │   └── resource_index
+│           │       └── packages
+│           │           └── usl_control -> /home/synerglogic/usl_drone_sim/build/usl_control/resource/usl_control
+│           ├── colcon-core
+│           │   └── packages
+│           │       └── usl_control
+│           └── usl_control
+│               ├── hook
+│               │   ├── ament_prefix_path.dsv
+│               │   ├── ament_prefix_path.ps1
+│               │   ├── ament_prefix_path.sh
+│               │   ├── pythonpath.dsv
+│               │   ├── pythonpath.ps1
+│               │   └── pythonpath.sh
+│               ├── package.bash
+│               ├── package.dsv
+│               ├── package.ps1
+│               ├── package.sh
+│               ├── package.xml -> /home/synerglogic/usl_drone_sim/build/usl_control/package.xml
+│               └── package.zsh
+├── log
+│   ├── build_2025-10-14_17-25-02
+│   │   ├── events.log
+│   │   ├── logger_all.log
+│   │   └── usl_control
+│   │       ├── command.log
+│   │       ├── stderr.log
+│   │       ├── stdout.log
+│   │       ├── stdout_stderr.log
+│   │       └── streams.log
+│   ├── build_2025-10-14_21-08-50
+│   │   ├── events.log
+│   │   ├── logger_all.log
+│   │   └── usl_control
+│   │       ├── command.log
+│   │       ├── stderr.log
+│   │       ├── stdout.log
+│   │       ├── stdout_stderr.log
+│   │       └── streams.log
+│   ├── COLCON_IGNORE
+│   ├── latest -> latest_build
+│   └── latest_build -> build_2025-10-14_21-08-50
+├── params
+│   ├── iris.parm
+│   └── mavic.parm
+├── protos
+│   ├── iris(edidted).proto
+│   ├── Iris.proto
+│   ├── Mavic2Pro.proto
+│   └── meshes
+│       ├── iris.dae
+│       ├── iris_prop_ccw.dae
+│       └── iris_prop_cw.dae
+├── src
+│   └── usl_control
+│       ├── package.xml
+│       ├── resource
+│       │   └── usl_control
+│       ├── setup.cfg
+│       ├── setup.py
+│       ├── test
+│       │   ├── test_copyright.py
+│       │   ├── test_flake8.py
+│       │   └── test_pep257.py
+│       └── usl_control
+│           ├── __init__.py
+│           ├── mavic_bridge.py
+│           ├── __pycache__
+│           │   ├── __init__.cpython-310.pyc
+│           │   ├── mavic_bridge.cpython-310.pyc
+│           │   └── square_mission.cpython-310.pyc
+│           └── square_mission.py
+├── test_takeoff.py
+├── urdf
+│   └── mavic.urdf
+└── worlds
+    ├── iris_camera.wbt
+    ├── iris_depth_camera.wbt
+    ├── iris_px4.wbt
+    ├── iris.wbt
+    ├── mavic_2_pro.wbt
+    ├── mavic_fixed (copy).wbt
+    ├── mavic_fixed.wbt
+    ├── mavic_px4.wbt
+    ├── quad_test.wbt
+    ├── simple_test.wbt
+    ├── webots_quadPlus.wbt
+    └── webots_quadX.wbt
+
+50 directories, 106 files
+synerglogic@synerglogic:~$ 
