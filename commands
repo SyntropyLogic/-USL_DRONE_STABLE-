@@ -17,9 +17,9 @@ cd ~/Downloads
 ./QGroundControl-x86_64.AppImage
 
  --ROS
-# Terminal 1: Launch Webots + ArduPilot (as before)
 
-# Terminal 2: Launch MAVROS
+
+source /opt/ros/humble/setup.bash
 
 ros2 run mavros mavros_node --ros-args \
   -p fcu_url:=udp://:14550@127.0.0.1:14555 \
