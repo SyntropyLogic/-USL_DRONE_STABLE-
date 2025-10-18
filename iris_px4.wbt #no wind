@@ -1,0 +1,114 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
+
+WorldInfo {
+  info [
+    "ROS2 Quadcopter Simulation"
+  ]
+  title "USL Drone Sim"
+  basicTimeStep 4
+}
+
+Viewpoint {
+  orientation -0.24 0.18 0.95 1.98
+  position 0.44 -6.97 4.14
+}
+
+TexturedBackground {
+}
+
+TexturedBackgroundLight {
+}
+
+RectangleArena {
+  floorSize 50 50
+}
+
+Robot {
+  translation 0 0 0.5
+  children [
+    GPS {
+      name "gps"
+    }
+    InertialUnit {
+      name "imu"
+    }
+    Gyro {
+      name "gyro"
+    }
+    Accelerometer {
+      name "accelerometer"
+    }
+    Compass {
+      name "magnetometer"
+    }
+    Propeller {
+      shaftAxis 0 0 1
+      centerOfThrust 0.13 -0.13 0
+      thrustConstants 12.32e-5 0
+      torqueConstants 1.59e-2 0
+      fastHelixThreshold 50
+      device RotationalMotor {
+        name "front_right_motor"
+        maxVelocity 600
+      }
+    }
+    Propeller {
+      shaftAxis 0 0 1
+      centerOfThrust -0.13 0.13 0
+      thrustConstants -12.32e-5 0
+      torqueConstants 1.59e-2 0
+      fastHelixThreshold 50
+      device RotationalMotor {
+        name "rear_left_motor"
+        maxVelocity 600
+      }
+    }
+    Propeller {
+      shaftAxis 0 0 1
+      centerOfThrust 0.13 0.13 0
+      thrustConstants 12.32e-5 0
+      torqueConstants 1.59e-2 0
+      fastHelixThreshold 50
+      device RotationalMotor {
+        name "front_left_motor"
+        maxVelocity 600
+      }
+    }
+    Propeller {
+      shaftAxis 0 0 1
+      centerOfThrust -0.13 -0.13 0
+      thrustConstants -12.32e-5 0
+      torqueConstants 1.59e-2 0
+      fastHelixThreshold 50
+      device RotationalMotor {
+        name "rear_right_motor"
+        maxVelocity 600
+      }
+    }
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.8 0.1 0.1
+        roughness 0.5
+        metalness 0
+      }
+      geometry Box {
+        size 0.3 0.3 0.1
+      }
+    }
+  ]
+  name "iris"
+  boundingObject Box {
+    size 0.3 0.3 0.1
+  }
+  physics Physics {
+    density -1
+    mass 1.5
+    centerOfMass [ 0 0 0 ]
+  }
+  controller "px4_controller"
+  supervisor TRUE
+}
