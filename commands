@@ -40,9 +40,9 @@ _____________
 
 
 cd ~/usl_drone_sim
+rm -rf build/usl_adaptive_control install/usl_adaptive_control
 colcon build --packages-select usl_adaptive_control
 source install/setup.bash
-
 
 
 
