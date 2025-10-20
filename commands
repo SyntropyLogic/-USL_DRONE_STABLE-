@@ -9,8 +9,7 @@ cd ~/usl_drone_sim/src/usl_adaptive_control/usl_adaptive_control
 --
 cd ~/ardupilot/Tools/autotest
 
-./sim_vehicle.py -v ArduCopter -w --model webots-python --add-param-file=/home/synerglogic/usl_drone_sim/params/mavic.parm --console --map
-
+./sim_vehicle.py -v ArduCopter -w --model webots-python --console --map
 
 
 cd ~/Downloads 
