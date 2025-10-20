@@ -1,0 +1,7 @@
+
+~/launch_sim.sh
+
+
+cd ~/ardupilot/Tools/autotest
+
+./sim_vehicle.py -v ArduCopter -w --model webots-python --console --map
