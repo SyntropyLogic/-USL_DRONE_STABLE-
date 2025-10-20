@@ -3,5 +3,16 @@
 
 
 cd ~/ardupilot/Tools/autotest
-
 ./sim_vehicle.py -v ArduCopter -w --model webots-python --console --map
+
+
+cd ~/Downloads 
+./QGroundControl-x86_64.AppImage
+
+
+
+ros2 topic pub /mavros/setpoint_raw/local mavros_msgs/msg/PositionTarget "{coordinate_frame: 1, type_mask: 4039, velocity: {x: 0.0, y: 0.0, z: -1.0}}" --rate 20 &
+
+
+
+
